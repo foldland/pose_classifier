@@ -1,0 +1,26 @@
+name: pose_classifier
+description: |
+  Dart port of the google pose detection used in 
+  https://github.com/googlesamples/mlkit/tree/master/android/vision-quickstart/app/src/main/java/com/google/mlkit/vision/demo/java/posedetector.
+version: 0.1.0
+topics:
+  - mlkit
+  - pose-detection
+  - pose-classification
+  - workout-counter
+
+environment:
+  sdk: ^3.11.0
+  flutter: ^3.35.0
+
+resolution: workspace
+
+dependencies:
+  collection: ^1.19.1
+  google_mlkit_pose_detection: ^0.14.0
+  meta: ^1.16.0
+  vector_math: ^2.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

@@ -1,0 +1,76 @@
+name: _pose_classifier
+description: (META) packages related to mlkit pose classification.
+repository: https://github.com/foldland/pose_classifier
+issue_tracker: https://github.com/foldland/pose_classifier/issues
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.11.0
+
+workspace:
+  # ignore: path_does_not_exist
+  - packages/*
+
+dev_dependencies:
+  build_runner: ^2.11.0
+  lint_maker: ^0.3.0
+  melos: ^7.1.1
+
+melos:
+  repository:
+    type: gitlab
+    origin: https://gitlab.debacode.de
+    owner: tools
+    name: pose_classifier
+
+  sdkPath: .fvm/flutter_sdk
+
+  command:
+    version:
+      releaseUrl: true
+      branch: main
+      includeScopes: false
+      includeCommitId: true
+      linkToCommits: false
+      workspaceChangelog: true
+      updateGitTagRefs: false
+      fetchTags: true
+
+  scripts:
+    test:
+      description: Tests all packages with coverage.
+      run: flutter test --coverage --reporter=expanded
+      exec:
+        concurrency: 1
+        failFast: true
+      packageFilters:
+        dirExists: test
+    test:transform_coverage:
+      description: (Internal) transforms the coverage to be collected.
+      run: dart pub global run coverde filter --input ./coverage/lcov.info --output MELOS_ROOT_PATH/coverage/filtered.lcov.info --base-directory MELOS_PACKAGE_PATH --filters '\.g\.dart,lib/src/generated'
+      exec:
+        concurrency: 1
+      packageFilters:
+        fileExists: coverage/lcov.info
+    test:collect_coverage:
+      description: Merge all packages coverage trace files ignoring data related to generated files.
+      run: >
+        dart pub global run coverde rm MELOS_ROOT_PATH/coverage/filtered.lcov.info &&
+        melos run test:transform_coverage --no-select &&
+        dart pub global run cobertura convert -i coverage/filtered.lcov.info &&
+        dart pub global run cobertura show -i coverage/filtered.lcov.info
+    pana:
+      description: Run the dart package analysis.
+      run: dart pub global run pana --exit-code-threshold 10 --flutter-sdk MELOS_ROOT_PATH/.fvm/flutter_sdk
+      exec:
+        concurrency: 1
+        failFast: true
+      packageFilters:
+        noPrivate: true
+    build_runner:
+      description: Generate build output for every package.
+      run: dart run build_runner build --workspace
+    lint_maker:
+      description: Run lint_maker to update debacode_lints.
+      run: dart run lint_maker
