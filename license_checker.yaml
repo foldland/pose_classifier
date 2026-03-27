@@ -11,3 +11,9 @@ permittedLicenses:
 rejectedLicenses:
   - GPL
   - AGPL-3.0
+
+approvedPackages:
+  no-file:
+    - flutter_test
+    - flutter_localizations
+    - flutter_web_plugins

@@ -6,6 +6,9 @@ useGitignore: true
 enableGlobDot: false
 ignorePaths:
   - "**/l10n/!(en.arb)"
+  - "packages/*/example/ios"
+  - "packages/*/example/android"
+  - "packages/*/example/assets"
 dictionaries:
   # cspell - https://github.com/streetsidesoftware/cspell-dicts
   - "bash"

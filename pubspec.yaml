@@ -60,6 +60,8 @@ melos:
         melos run test:transform_coverage --no-select &&
         dart pub global run cobertura convert -i coverage/filtered.lcov.info &&
         dart pub global run cobertura show -i coverage/filtered.lcov.info
+      packageFilters:
+        fileExists: coverage/lcov.info
     pana:
       description: Run the dart package analysis.
       run: dart pub global run pana --exit-code-threshold 10 --flutter-sdk MELOS_ROOT_PATH/.fvm/flutter_sdk
