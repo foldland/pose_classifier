@@ -31,7 +31,7 @@ class ClassificationResult {
   /// If the class is not present in the classification result, returns 0.0.
   ///
   /// [className] The name of the pose class to look up.
-  double getClassConfidence(String className) {
+  double getClassConfidence(String? className) {
     return _classConfidences[className] ?? 0.0;
   }
 
@@ -40,9 +40,9 @@ class ClassificationResult {
   /// If there are no classes in the classification result, returns an empty
   /// string. If multiple classes have the same highest confidence, returns
   /// the first one encountered.
-  String getMaxConfidenceClass() {
+  String? getMaxConfidenceClass() {
     if (_classConfidences.isEmpty) {
-      return '';
+      return null;
     }
 
     return _classConfidences.entries

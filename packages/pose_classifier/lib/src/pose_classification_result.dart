@@ -1,5 +1,5 @@
 typedef Repetition = ({String name, int reps});
-typedef PoseConfidence = ({String name, double confidence});
+typedef PoseConfidence = ({String? name, double confidence});
 
 class PoseClassificationResult {
   PoseClassificationResult({
@@ -8,10 +8,10 @@ class PoseClassificationResult {
   }) : repetitionClass = repetitions?.name,
        repetitionCount = repetitions?.reps;
 
-  /// The detected pose reppetition.
+  /// The detected pose repetition.
   final String? repetitionClass;
 
-  /// The number of repititions.
+  /// The number of repetitions.
   final int? repetitionCount;
 
   /// The last detected pose with its confidence.
