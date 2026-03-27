@@ -104,7 +104,7 @@ class PoseClassifier {
       for (var i = 0; i < embedding.length; i++) {
         originalMax = max(
           originalMax,
-          // TODO(Leptopoda): perf; remove copy
+          // TODO(nikolas.rimikis): perf; remove copy
           (embedding[i] - sampleEmbedding[i])
               .multiplyVector(_axesWeights)
               .maxAbs(),
