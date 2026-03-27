@@ -1,0 +1,27 @@
+name: pose_classifier_examples
+description: pose_classifier examples
+publish_to: "none"
+version: 1.0.0
+
+environment:
+  sdk: ^3.9.0
+  flutter: ^3.35.0
+
+dependencies:
+  camera: ^0.12.0
+  cupertino_icons: ^1.0.8
+  flutter:
+    sdk: flutter
+  google_mlkit_pose_detection: ^0.14.0
+  pose_classifier:
+    path: ../
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - path: assets/poses/ # fitness_pose_samples.csv
