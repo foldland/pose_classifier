@@ -1,7 +1,5 @@
 name: pose_classifier
-description: |
-  Dart port of the google pose detection used in 
-  https://github.com/googlesamples/mlkit/tree/master/android/vision-quickstart/app/src/main/java/com/google/mlkit/vision/demo/java/posedetector.
+description: Dart port of the google pose detection used in the mlkit example project.
 version: 0.1.0
 topics:
   - mlkit
@@ -11,7 +9,7 @@ topics:
 
 environment:
   sdk: ^3.11.0
-  flutter: ^3.35.0
+  flutter: ">=3.35.0"
 
 resolution: workspace
 
