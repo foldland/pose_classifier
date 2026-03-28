@@ -1,6 +1,8 @@
 name: pose_classifier
 description: Dart port of the google pose detection used in the mlkit example project.
 version: 0.1.0
+repository: https://github.com/foldland/pose_classifier
+issue_tracker: https://github.com/foldland/pose_classifier/issues
 topics:
   - mlkit
   - pose-detection
