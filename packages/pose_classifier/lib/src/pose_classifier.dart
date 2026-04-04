@@ -102,19 +102,15 @@ class PoseClassifier {
       var originalMax = 0.0;
       var flippedMax = 0.0;
       for (var i = 0; i < embedding.length; i++) {
-        originalMax = max(
-          originalMax,
-          // TODO(nikolas.rimikis): perf; remove copy
-          (embedding[i] - sampleEmbedding[i])
-              .multiplyVector(_axesWeights)
-              .maxAbs(),
-        );
-        flippedMax = max(
-          flippedMax,
-          (flippedEmbedding[i] - sampleEmbedding[i])
-              .multiplyVector(_axesWeights)
-              .maxAbs(),
-        );
+        final original = embedding[i].clone()
+          ..sub(sampleEmbedding[i])
+          ..multiply(_axesWeights);
+        originalMax = max(originalMax, original.maxAbs());
+
+        final flipped = flippedEmbedding[i].clone()
+          ..sub(sampleEmbedding[i])
+          ..multiply(_axesWeights);
+        flippedMax = max(flippedMax, flipped.maxAbs());
       }
       // Set the max distance as min of original and flipped max distance.
       maxDistances.add((poseSample, min(originalMax, flippedMax)));
@@ -137,12 +133,15 @@ class PoseClassifier {
       var originalSum = 0.0;
       var flippedSum = 0.0;
       for (var i = 0; i < embedding.length; i++) {
-        originalSum += (embedding[i] - sampleEmbedding[i])
-            .multiplyVector(_axesWeights)
-            .sumAbs();
-        flippedSum += (flippedEmbedding[i] - sampleEmbedding[i])
-            .multiplyVector(_axesWeights)
-            .sumAbs();
+        final original = embedding[i].clone()
+          ..sub(sampleEmbedding[i])
+          ..multiply(_axesWeights);
+        originalSum += original.sumAbs();
+
+        final flipped = flippedEmbedding[i].clone()
+          ..sub(sampleEmbedding[i])
+          ..multiply(_axesWeights);
+        flippedSum += flipped.sumAbs();
       }
       // Set the mean distance as min of original and flipped mean distances.
       final meanDistance =
