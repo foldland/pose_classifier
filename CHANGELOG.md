@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-04-16
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`pose_classifier` - `v0.1.0+1`](#pose_classifier---v0101)
+
+---
+
+#### `pose_classifier` - `v0.1.0+1`
+
+ - **PERF**: reduce vector copies. (783d2335)
+ - **FIX**: expose StreamingClassificationResult. (2b4399b0)
+
+
 ## 2026-03-27
 
 ### Changes
