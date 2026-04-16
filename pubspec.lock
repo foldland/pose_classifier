@@ -343,10 +343,10 @@ packages:
     dependency: "direct dev"
     description:
       name: lint_maker
-      sha256: fdcca24365fd2d44636b6978f5a9832e270c406e7c97ae51f2c086895e1c0ce2
+      sha256: a8cbc6d76830e36cb824df9c3cb513ddebbf4c4e11a1ee2ea88e5492946427c0
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.2"
+    version: "0.3.2+1"
   logging:
     dependency: transitive
     description:
@@ -375,10 +375,10 @@ packages:
     dependency: "direct dev"
     description:
       name: melos
-      sha256: "72942b70e2fad1f01b2d66b42696546f9f48f57c342bee61726c540e8bfdcb02"
+      sha256: "2f7381d209ab7554203c51481a6a57c7896593b7f06190a06a467aa5bfd693c5"
       url: "https://pub.dev"
     source: hosted
-    version: "7.5.0"
+    version: "7.5.1"
   meta:
     dependency: transitive
     description:
@@ -588,10 +588,10 @@ packages:
     dependency: transitive
     description:
       name: vm_service
-      sha256: "45caa6c5917fa127b5dbcfbd1fa60b14e583afdc08bfc96dda38886ca252eb60"
+      sha256: "046d3928e16fa4dc46e8350415661755ab759d9fc97fc21b5ab295f71e4f0499"
       url: "https://pub.dev"
     source: hosted
-    version: "15.0.2"
+    version: "15.1.0"
   watcher:
     dependency: transitive
     description:
