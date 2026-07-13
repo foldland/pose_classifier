@@ -17,7 +17,7 @@ resolution: workspace
 
 dependencies:
   collection: ^1.19.1
-  google_mlkit_pose_detection: ^0.14.0
+  google_mlkit_pose_detection: ^0.15.0
   meta: ^1.16.0
   vector_math: ^2.2.0
 
