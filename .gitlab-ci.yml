@@ -1,9 +1,9 @@
 include:
   - project: tools/shared-pipelines
-    ref: v7.11.0
+    ref: v7.12.1
     file: /base/base.yaml
   - project: tools/shared-pipelines
-    ref: v7.11.0
+    ref: v7.12.1
     file: /dart/dart.yaml
 
 # Prepare
